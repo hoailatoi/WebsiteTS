@@ -1,0 +1,14 @@
+c:\users\hoai\documents\visual studio 2015\Projects\WebsiteTS\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+C:\Users\Hoai\Documents\Visual Studio 2015\Projects\WebsiteTS\Model\bin\Debug\Model.dll.config
+C:\Users\Hoai\Documents\Visual Studio 2015\Projects\WebsiteTS\Model\bin\Debug\Model.dll
+C:\Users\Hoai\Documents\Visual Studio 2015\Projects\WebsiteTS\Model\bin\Debug\Model.pdb
+C:\Users\Hoai\Documents\Visual Studio 2015\Projects\WebsiteTS\Model\bin\Debug\EntityFramework.dll
+C:\Users\Hoai\Documents\Visual Studio 2015\Projects\WebsiteTS\Model\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Hoai\Documents\Visual Studio 2015\Projects\WebsiteTS\Model\bin\Debug\PagedList.dll
+C:\Users\Hoai\Documents\Visual Studio 2015\Projects\WebsiteTS\Model\bin\Debug\EntityFramework.xml
+C:\Users\Hoai\Documents\Visual Studio 2015\Projects\WebsiteTS\Model\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Hoai\Documents\Visual Studio 2015\Projects\WebsiteTS\Model\bin\Debug\PagedList.xml
+C:\Users\Hoai\Documents\Visual Studio 2015\Projects\WebsiteTS\Model\obj\Debug\Model.dll
+C:\Users\Hoai\Documents\Visual Studio 2015\Projects\WebsiteTS\Model\obj\Debug\Model.pdb
+C:\Users\Hoai\Documents\Visual Studio 2015\Projects\WebsiteTS\Model\bin\Debug\PagedList.Mvc.dll
+C:\Users\Hoai\Documents\Visual Studio 2015\Projects\WebsiteTS\Model\bin\Debug\PagedList.Mvc.xml

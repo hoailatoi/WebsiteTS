@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLWebsiteTSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CTDATHANG">
+    <Key>
+      <PropertyRef Name="SoDH" />
+      <PropertyRef Name="MaTS" />
+    </Key>
+    <Property Name="SoDH" Type="int" Nullable="false" />
+    <Property Name="MaTS" Type="int" Nullable="false" />
+    <Property Name="SoLuong" Type="int" />
+    <Property Name="DonGia" Type="decimal" Precision="9" Scale="2" />
+    <Property Name="ThanhTien" Type="decimal" Precision="20" Scale="2" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="DONDATHANG">
+    <Key>
+      <PropertyRef Name="SoDH" />
+    </Key>
+    <Property Name="SoDH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID" Type="int" />
+    <Property Name="NgayDH" Type="smalldatetime" />
+    <Property Name="TriGia" Type="money" />
+    <Property Name="DaGiao" Type="bit" />
+    <Property Name="NgayGiaoHang" Type="smalldatetime" />
+    <Property Name="TenNguoiNhan" Type="varchar" MaxLength="50" />
+    <Property Name="DiaChiNhan" Type="nvarchar" MaxLength="50" />
+    <Property Name="DienThoaiNhan" Type="varchar" MaxLength="15" />
+    <Property Name="HTThanhToan" Type="nvarchar" MaxLength="150" />
+    <Property Name="HTGiaoHang" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="NHANVIEN">
+    <Key>
+      <PropertyRef Name="MaNV" />
+    </Key>
+    <Property Name="MaNV" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenNhanVien" Type="nvarchar" MaxLength="50" />
+    <Property Name="DiaChiNV" Type="nvarchar" MaxLength="150" />
+    <Property Name="DienThoaiNV" Type="nvarchar" MaxLength="10" />
+    <Property Name="Username" Type="nvarchar" MaxLength="250" />
+    <Property Name="Password" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="QUANTRIVIEN">
+    <Key>
+      <PropertyRef Name="MaQuanTri" />
+    </Key>
+    <Property Name="MaQuanTri" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenQuanTri" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="GioiTinhQTV" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="NgaySinhQTV" Type="date" Nullable="false" />
+    <Property Name="TenDNQTV" Type="varchar" MaxLength="15" />
+    <Property Name="MatKhauDNQTV" Type="varchar" MaxLength="15" />
+    <Property Name="DiaChiQTV" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="DienThoaiQTV" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="EmailQTV" Type="nvarchar" MaxLength="50" />
+    <Property Name="QuyenQTV" Type="int" />
+  </EntityType>
+  <EntityType Name="TAIKHOAN">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="nvarchar" MaxLength="250" />
+    <Property Name="Password" Type="nvarchar" MaxLength="250" />
+    <Property Name="Dissplayname" Type="nvarchar" MaxLength="250" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="250" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="250" />
+    <Property Name="Address" Type="nvarchar" MaxLength="250" />
+    <Property Name="Ngaysinh" Type="date" />
+    <Property Name="Image" Type="image" />
+    <Property Name="TypeAccount" Type="int" />
+  </EntityType>
+  <EntityType Name="TS">
+    <Key>
+      <PropertyRef Name="MaTS" />
+    </Key>
+    <Property Name="MaTS" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenTS" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="DonViTinh" Type="nvarchar" MaxLength="50" />
+    <Property Name="DonGia" Type="money" />
+    <Property Name="HinhMinhHoa" Type="varchar" MaxLength="50" />
+    <Property Name="NgayCapNhat" Type="smalldatetime" />
+    <Property Name="SoLuongBan" Type="int" />
+    <Property Name="SoLanXem" Type="int" />
+  </EntityType>
+  <Association Name="FK_CTDatHang_DonDatHang">
+    <End Role="DONDATHANG" Type="Self.DONDATHANG" Multiplicity="1" />
+    <End Role="CTDATHANG" Type="Self.CTDATHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DONDATHANG">
+        <PropertyRef Name="SoDH" />
+      </Principal>
+      <Dependent Role="CTDATHANG">
+        <PropertyRef Name="SoDH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTDatHang_TS">
+    <End Role="TS" Type="Self.TS" Multiplicity="1" />
+    <End Role="CTDATHANG" Type="Self.CTDATHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TS">
+        <PropertyRef Name="MaTS" />
+      </Principal>
+      <Dependent Role="CTDATHANG">
+        <PropertyRef Name="MaTS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QLWebsiteTSModelStoreContainer">
+    <EntitySet Name="CTDATHANG" EntityType="Self.CTDATHANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DONDATHANG" EntityType="Self.DONDATHANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NHANVIEN" EntityType="Self.NHANVIEN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="QUANTRIVIEN" EntityType="Self.QUANTRIVIEN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TAIKHOAN" EntityType="Self.TAIKHOAN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TS" EntityType="Self.TS" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_CTDatHang_DonDatHang" Association="Self.FK_CTDatHang_DonDatHang">
+      <End Role="DONDATHANG" EntitySet="DONDATHANG" />
+      <End Role="CTDATHANG" EntitySet="CTDATHANG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTDatHang_TS" Association="Self.FK_CTDatHang_TS">
+      <End Role="TS" EntitySet="TS" />
+      <End Role="CTDATHANG" EntitySet="CTDATHANG" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

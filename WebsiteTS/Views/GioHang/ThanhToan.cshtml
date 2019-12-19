@@ -1,0 +1,107 @@
+﻿@model  List<WebsiteTS.Models.CartItem>
+@{
+    ViewBag.Title = "ThanhToan";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css" />
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<script src="https://use.fontawesome.com/c560c025cf.js"></script>
+<link href="~/Assets/Client/Css/Cart.css" rel="stylesheet" />
+
+<style>
+    .content_giohang {
+        min-height: 527px;
+        margin: 3% 15% 3% 15%;
+    }
+</style>
+
+<div class="content_giohang">
+    @if (Model.Count > 0)
+    {
+        <div class="section group">
+            <a href="/KhachHang/KhachHang">Quay lại trang chủ</a>
+            <br />
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td>Mã Trà Sữa</td>
+                        <td>Tên Trà Sữa</td>
+                        <td>Hình ảnh</td>
+                        <td>Số lượng</td>
+                        <td>Đơn giá</td>
+                        <td>Thành tiền</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Monan.MaTS</td>
+                            <td>@item.Monan.TenTS/td>
+                            <td><img src="/Assets/Client/anh/@item.Monan.HinhMinhHoa" width="100" /></td>
+                            <td>@item.SoLuong</td>
+                            <td>@item.Monan.DonGia.GetValueOrDefault(0).ToString("N0")</td>
+                            <td>@((item.Monan.DonGia.GetValueOrDefault(0) * item.SoLuong).ToString("N0"))</td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+        <hr />
+        <div class="section group">
+            @using (Html.BeginForm("ThanhToan", "GioHang", FormMethod.Post))
+            {
+                <table width="80%" align="center">
+                    <tr>
+                        <td width="40%">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label><b>Người nhận hàng</b></label>
+                                    <input name="shipName" required class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label><b>Địa chỉ nhận hàng</b></label>
+                                    <input name="address" required class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label><b>Số điện thoại</b></label>
+                                    <input name="mobile" required class="form-control" />
+                                </div>
+                                <button type="submit" class="btn">Đặt hàng</button>
+                            </div>
+                        </td>
+                        <td width="10%"></td>
+                        <td>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label><b>Hình thức thanh toán</b></label><br />
+                                    <input type="radio" name="httt" value="Thanh toán khi nhận hàng" checked="checked"> Thanh toán khi nhận hàng<br />
+                                    <input type="radio" name="httt" value="Thanh toán online"> Thanh toán online
+                                </div>
+                                <div class="form-group">
+                                    <label><b>Hình thức giao hàng</b></label><br />
+                                    <input type="radio" name="htgh" value="Giao hàng trực tiếp" checked="checked"> Giao hàng trực tiếp<br />
+                                    <input type="radio" name="htgh" value="Chuyển giao"> Chuyển giao
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="section group">
+            <div class="alert alert-danger">
+                <h2>Không có bất kì sản phẩm nào trong giỏ hàng</h2>
+                <h3><a href="/KhachHang/KhachHang">Quay lại mua hàng</a></h3>
+            </div>
+        </div>
+    }
+</div>
+

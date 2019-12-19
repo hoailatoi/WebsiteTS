@@ -1,0 +1,71 @@
+﻿@model PagedList.IPagedList<Model.EF.TAIKHOAN>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Quản Lý Người Dùng";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="ibox">
+
+    <div class="ibox-head">
+        <div class="ibox-title">Danh sách tài khoản</div>
+    </div>
+
+    <div class="ibox-body">
+        @using (Html.BeginForm("Index", "User", FormMethod.Get))
+        {
+            @*<div class="rel">
+                    <span class="search-icon"><i class="ti-search"></i></span>
+                    <input class="form-control" placeholder="Search here...">
+                </div>*@
+
+            <div class="row form-group ">
+                <div class="col-lg-12">
+                    <div class="col-md-4">
+                        <input type="text" name="Tìm kiếm" class="form-control" placeholder="Tìm kiếm Thành Viên" />
+                        <br />
+                    </div>
+                    <div class="col-md-4">
+                        <button class="btn btn-success">Tìm kiếm</button>
+                        @*<button  class="btn btn-warning" href="/Admin/User/Tao">Thêm mới</button>*@
+                        <a type="button" class="btn btn-success" href="/Admin/User/Tao">Thêm mới</a>
+                    </div>
+                </div>
+            </div>
+
+        }
+
+        <table class="table table-striped table-bordered table-hover" id="example-table" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th>Tên đăng nhập</th>
+                    <th>Tên</th>
+                    <th>Giới tính</th>
+                    <th>Điện thoại</th>
+                    <th>Ngày sinh</th>
+                    <th>Địa chỉ</th>
+                    <th>Chỉnh sửa</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Username</td>
+                        <td>@item.Dissplayname</td>
+                        <td>@item.Gender</td>
+                        <td>@item.Phone</td>
+                        <td>@item.Ngaysinh</td>
+                        <td>@item.Address</td>
+                        <td>
+                            <a href="/Admin/User/Edit/@item.ID">Sữa</a> 
+                            <a href="/Admin/User/Delete/@item.ID">Xóa</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+    </div>
+</div>

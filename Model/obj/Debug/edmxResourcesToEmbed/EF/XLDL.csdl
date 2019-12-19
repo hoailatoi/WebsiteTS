@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLWebsiteTSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CTDATHANG">
+    <Key>
+      <PropertyRef Name="SoDH" />
+      <PropertyRef Name="MaTS" />
+    </Key>
+    <Property Name="SoDH" Type="Int32" Nullable="false" />
+    <Property Name="MaTS" Type="Int32" Nullable="false" />
+    <Property Name="SoLuong" Type="Int32" />
+    <Property Name="DonGia" Type="Decimal" Precision="9" Scale="2" />
+    <Property Name="ThanhTien" Type="Decimal" Precision="20" Scale="2" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="DONDATHANG" Relationship="Self.FK_CTDatHang_DonDatHang" FromRole="CTDATHANG" ToRole="DONDATHANG" />
+    <NavigationProperty Name="TS" Relationship="Self.FK_CTDatHang_TS" FromRole="CTDATHANG" ToRole="TS" />
+  </EntityType>
+  <EntityType Name="DONDATHANG">
+    <Key>
+      <PropertyRef Name="SoDH" />
+    </Key>
+    <Property Name="SoDH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID" Type="Int32" />
+    <Property Name="NgayDH" Type="DateTime" Precision="0" />
+    <Property Name="TriGia" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="DaGiao" Type="Boolean" />
+    <Property Name="NgayGiaoHang" Type="DateTime" Precision="0" />
+    <Property Name="TenNguoiNhan" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DiaChiNhan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DienThoaiNhan" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="HTThanhToan" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="HTGiaoHang" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CTDATHANG" Relationship="Self.FK_CTDatHang_DonDatHang" FromRole="DONDATHANG" ToRole="CTDATHANG" />
+  </EntityType>
+  <EntityType Name="NHANVIEN">
+    <Key>
+      <PropertyRef Name="MaNV" />
+    </Key>
+    <Property Name="MaNV" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenNhanVien" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DiaChiNV" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="DienThoaiNV" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Username" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="QUANTRIVIEN">
+    <Key>
+      <PropertyRef Name="MaQuanTri" />
+    </Key>
+    <Property Name="MaQuanTri" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenQuanTri" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GioiTinhQTV" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NgaySinhQTV" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="TenDNQTV" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="MatKhauDNQTV" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="DiaChiQTV" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DienThoaiQTV" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EmailQTV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="QuyenQTV" Type="Int32" />
+  </EntityType>
+  <EntityType Name="TAIKHOAN">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Dissplayname" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Gender" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Ngaysinh" Type="DateTime" Precision="0" />
+    <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="TypeAccount" Type="Int32" />
+  </EntityType>
+  <EntityType Name="TS">
+    <Key>
+      <PropertyRef Name="MaTS" />
+    </Key>
+    <Property Name="MaTS" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenTS" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DonViTinh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DonGia" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="HinhMinhHoa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NgayCapNhat" Type="DateTime" Precision="0" />
+    <Property Name="SoLuongBan" Type="Int32" />
+    <Property Name="SoLanXem" Type="Int32" />
+    <NavigationProperty Name="CTDATHANG" Relationship="Self.FK_CTDatHang_TS" FromRole="TS" ToRole="CTDATHANG" />
+  </EntityType>
+  <Association Name="FK_CTDatHang_DonDatHang">
+    <End Role="DONDATHANG" Type="Self.DONDATHANG" Multiplicity="1" />
+    <End Role="CTDATHANG" Type="Self.CTDATHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DONDATHANG">
+        <PropertyRef Name="SoDH" />
+      </Principal>
+      <Dependent Role="CTDATHANG">
+        <PropertyRef Name="SoDH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTDatHang_TS">
+    <End Role="TS" Type="Self.TS" Multiplicity="1" />
+    <End Role="CTDATHANG" Type="Self.CTDATHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TS">
+        <PropertyRef Name="MaTS" />
+      </Principal>
+      <Dependent Role="CTDATHANG">
+        <PropertyRef Name="MaTS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QLWebsiteTSEntities4" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CTDATHANG" EntityType="Self.CTDATHANG" />
+    <EntitySet Name="DONDATHANG" EntityType="Self.DONDATHANG" />
+    <EntitySet Name="NHANVIEN" EntityType="Self.NHANVIEN" />
+    <EntitySet Name="QUANTRIVIEN" EntityType="Self.QUANTRIVIEN" />
+    <EntitySet Name="TAIKHOAN" EntityType="Self.TAIKHOAN" />
+    <EntitySet Name="TS" EntityType="Self.TS" />
+    <AssociationSet Name="FK_CTDatHang_DonDatHang" Association="Self.FK_CTDatHang_DonDatHang">
+      <End Role="DONDATHANG" EntitySet="DONDATHANG" />
+      <End Role="CTDATHANG" EntitySet="CTDATHANG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTDatHang_TS" Association="Self.FK_CTDatHang_TS">
+      <End Role="TS" EntitySet="TS" />
+      <End Role="CTDATHANG" EntitySet="CTDATHANG" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

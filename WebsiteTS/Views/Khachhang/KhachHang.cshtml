@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "KhachHang";
+    Layout = "~/Views/Shared/Khach.cshtml";
+    var list_TS = (List<Model.EF.TS>)ViewBag.ListTS;
+}
+
+<body>
+
+
+    <div class="banner">
+        <img src="/Assets/Client/anh/3.jpg" height="400px" width="100%" alt="Banner" />
+        <!--/* <marquee behavior="alternate" id="marq" scrollamount="15" direction="right" loop="50">
+        <a href="#"><img src="/Assets/Client/anh/6.jpg" title="hình ảnh chạy" width="800" height="220"/> </a></marquee> */-->
+    </div>
+
+    <div class="web">
+        <center><p style="margin-top:10px; font-weight: bold;font-size: 30px;border-bottom: 1px solid #E1E1E1;color: blue">SỰ LỰA CHỌN TỪ BẠN</p></center>
+        <div class="KhungChinh">
+            @foreach (var item in list_TS)
+            {
+                <p><img src="/Assets/Client/anh/@item.HinhMinhHoa" alt="Hinh Trà Sữa" width="310px" height="310px"><br>@item.TenTS<br />Đơn giá: <span class="gia">@item.DonGia.GetValueOrDefault(0).ToString("N0") VNĐ</span><br /><a href="/GioHang/AddItem?maDoUong=@item.MaTS&SoLuong=1"><img src="~/Assets/Client/nut_chonmua.gif" /></a></p>
+            }
+                
+        </div>
+        <div class="Top">
+            <center><p style="margin-top:10px; font-weight: bold;font-size: 30px;border-bottom: 10px solid #E1E1E1;color: blue">TOP HAY DÙNG</p></center>
+
+            <a href="#">
+                <div class="anh"><img src="/Assets/Client/anh/16.jpg" alt="Ảnh lỗi"></div>
+                <div class="chu"><p>Sinh Tố Chuối</p></div>
+            </a>
+            <center><div class="gach" align="center"></div></center>
+            <a href="#">
+                <div class="anh"><img src="/Assets/Client/anh/4.jpg" alt="Ảnh lỗi"></div>
+                <div class="chu"><p>Trà Sữa Trân Châu Dâu</p></div>
+            </a>
+
+            <center><div class="gach" align="center"></div></center>
+            <a href="#">
+                <div class="anh"><img src="/Assets/Client/anh/7.jpg" alt="Ảnh lỗi"></div>
+                <div class="chu"><p>Trà Sữa MatCha Thạch MatCha</p></div>
+            </a>
+            <center><div class="gach" align="center"></div></center>
+            <a href="#">
+                <div class="anh"><img src="/Assets/Client/anh/13.jpg" alt="Ảnh lỗi"></div>
+                <div class="chu"><p>Sinh Tố Bơ</p></div>
+            </a>
+            <center><div class="gach" align="center"></div></center>
+        </div>
+
+    </div>
+</body>
+
+
+
+

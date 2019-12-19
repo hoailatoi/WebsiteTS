@@ -1,0 +1,60 @@
+﻿@model PagedList.IPagedList<Model.EF.TS>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "DSFood";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="ibox">
+    <div class="ibox-head">
+        <div class="ibox-title">Danh sách món</div>
+    </div>
+    <div class="ibox-body">
+        @using (Html.BeginForm("DSFood", "Food", FormMethod.Get))
+        {
+
+            <div class="row form-group ">
+                <div class="col-lg-12">
+                    <div class="col-md-4">
+                        <input type="text" name="Tìm kiếm" class="form-control" placeholder="Tìm kiếm ..." />
+                        <br />
+                    </div>
+                    <div class="col-md-4">
+                        <button type="submit" class="btn btn-primary">Tìm kiếm</button>
+                        <a type="button" class="btn btn-success" href="/Admin/Food/Food">Thêm mới</a>
+                    </div>
+                </div>
+            </div>
+
+        }
+        <table class="table table-striped table-bordered table-hover" id="example-table" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th>Tên thực phẩm</th>
+                    <th>Ngày Cập Nhập</th>
+                    <th>Giá</th>
+                    <th>Ảnh</th>
+                    <th>Chức năng</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.TenTS</td>
+                        <td>@item.NgayCapNhat</td>
+                        <td>@item.DonGia</td>
+                        <td><img src="/Assets/Client/anh/@item.HinhMinhHoa" , width="300px" height="200px" /></td>
+                        <td>
+                            <a href="/Admin/Food/Edit/@item.MaTS">Sửa</a>
+                            <a href="/Admin/Food/Delete/@item.MaTS">Xóa</a>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        @Html.PagedListPager(Model, page => Url.Action("DSFood", new { page }))
+    </div>
+</div>
+

@@ -1,0 +1,50 @@
+﻿@model WebsiteTS.Models.LoginCus
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<style type="text/css">
+    .aa
+    {
+        font-size:30px;
+        color:crimson;
+    }
+</style>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Đăng nhập</title>
+    <link href="/Assets/Client/css/sytle-DangNhap.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="/Assets/Client/JS/KiemtraDN.js"></script>
+</head>
+
+<body>
+    @using (Html.BeginForm("DangNhap", "DangNhap"))
+    {
+        <div class="khung">
+            <div class="dangnhap">
+                <center><label class="tieude">Đăng nhập</label></center>
+                @Html.ValidationSummary(false, "", new { @class = "text-danger" });
+                <div class="taikhoan">
+                    <div class="trongsuot">
+                        @Html.TextBoxFor(Model => Model.Username, new { @class = "trongsuot", @id = "acc", @autofocus = "autofocus" })
+                        <br><br>
+                        @Html.PasswordFor(Model => Model.Password, new { @class = "trongsuot", @id = "pass", @autofocus = "autofocus" })
+                    </div>
+                </div>
+                @*<input name="chkGiuDangNhap" type="checkbox" id="chkGDN">*@
+                <div style="padding-top:40px">
+                    @Html.CheckBoxFor(Model => Model.rememberMe, new { @class = "", @id = "#chkGDN" })
+                    <label id="lableDN">
+                        Giữ cho tôi luôn đăng nhập
+                    </label>
+                </div>
+               
+                <center><button type="submit" name="sumbmit" value="ĐĂNG NHẬP" class="nutsubmit">ĐĂNG NHẬP</button></center>
+            </div>
+        </div>
+    }
+    <a class="aa" href="/DangKy/DangKy"> ĐĂNG KÍ NGAY</a>
+</body>
+</html>

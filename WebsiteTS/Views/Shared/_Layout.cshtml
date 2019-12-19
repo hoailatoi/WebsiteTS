@@ -1,0 +1,75 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>TeaTimeH</title>
+    <link href="/Assets/Client/css/sytle.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+
+    <div class="menu">
+        <ul>
+            <img src="/Assets/Client/anh/14.jpg" alt="ảnh lỗi" title="Trang chủ"></a>
+            <li>
+                <a href="/Home/TrangChu">TRANG CHỦ</a>
+                <ul class="menu-phu"></ul>
+            </li>
+            <li>
+                <a href="/GioiThieu/GioiThieu">GIỚI THIỆU</a>
+                <ul class="menu-phu"></ul>
+            </li>
+            <li>
+                <a href="#">MENU</a>
+                <ul class="menu-phu">
+                    <li><a href="#">COMPO THÁNG</a></li>
+                    <li><a href="#">ĐANG GIẢM GIÁ</a></li>
+                    <li><a href="#">MENU HIỆN TẠI</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="/TuyenDung/TuyenDung">TUYỂN DỤNG</a>
+                <ul class="menu-phu"></ul>
+            </li>
+            <li>
+                <a href="#">THÀNH VIÊN</a>
+                <ul class="menu-phu">
+                    <li><a href="/DangNhap/DangNhap">Đăng nhập</a></li>
+                    <li><a href="/DangKy/DangKy">Đăng ký</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">LIÊN HỆ</a>
+            </li>
+            <li><a href="#">SEARCH</a>
+					<ul class="menu-phu">
+						<div>
+				<center><form class="timkiem">		
+       			 <input type="text" name="search" placeholder="Nhập từ khóa..">
+						</form>
+				</center>
+						</div> 
+					</ul>
+				</li>
+        </ul>
+    </div>
+    @RenderBody()
+    <div class="cuoitrang">
+        <img src="/Assets/Client/anh/14.jpg" alt="ảnh lỗi">
+        <p class="chu">CHÂM NGÔN</p>
+        <p class="tt">TRÀ SỮA RẤT BỔ <br> NHƯNG KHÔNG NÊN LẠM DỤNG QUÁ NHIỀU.</p>
+        <div class="follow">
+            <p>FOLLOW</p>
+            <a href="https://www.facebook.com"><img class="icon" src="/Assets/Client/anh/FB.png" alt="ảnh lỗi" title="Facebook"></a>
+            <a href="https://www.youtube.com"><img class="icon" src="/Assets/Client/anh/YOUTUBE.png" alt="ảnh lỗi" title="Youtube"></a>
+            <a href="mailto:tranhoai01255622@gmail.com"><img class="icon" src="/Assets/Client/anh/GMAIL.png" alt="ảnh lỗi" title="Gmail"></a>
+
+        </div>
+        <div class="ke"></div>
+        <div class="dongcuoi">
+            <p style="color: white;  margin: 15px 0px 0px 20px;text-align: center ;font-size: 25px"><marquee>Copyright © 2019 TeaTimeH - hotline:0857085622 - Đ/C: Số 08 Trần Văn Ơn,TP Thủ Dầu Một, Tỉnh Bình Dương</marquee></p>
+        </div>
+    </div>
+    <script src="~/Scripts/Cart - Copy.js"></script>
+</body>
+</html>

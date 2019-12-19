@@ -1,0 +1,215 @@
+﻿/* Reset cái css đơn giản vì mội trình duyệt có cách hiển thị khác nhau nên ta phải reset giá trị về ban đầu */
+*
+{
+	padding: 0; /*khoảng không cho các thành phần*/
+	margin: 0; /*canh lề cho thành phần*/
+}
+/*-------------------------------------- Thiết kế lớp menu --------------------------------------------*/
+.menu
+{
+	font-family:  Times, "Times New Roman", "serif";	/*Cài đặt font chữ là time new roman*/
+	background: black; /*Màu nên là màu đen*/
+	color: white; /*màu chữ là màu trắng*/
+	text-align: center;
+	width:100%;
+	/*position:fixed; Thuộc tính này giúp thanh menu luôn cố định mỗi khi cuộn trình duyệt*/
+}
+.menu ul
+{
+	list-style: none; /*bỏ các thiết kế trong list*/
+	
+}
+.menu ul img
+{
+	width: 110px;
+	height: 60px;
+	float: left;
+	margin-left: 30px;
+}/**/
+.menu ul li
+{
+	display: inline-table; /*hiển thị các chữ nằm ngang*/
+	height: 60px; /*chiêu cao là 60px*/
+	width: 180px; /*chiều rông là 180px*/
+	line-height:60px; /*vị trí cách nhau giữa các dòng (để chữ nằm giữa thì thuộc tính line-height phải set giá trị bằng với height)*/
+	position: relative; /*thuộc tính này dùng để set vị trí tuyệt đối, có thuộc tính này thì khi điều chỉnh giá trị cho thẻ ul li thì nó sẽ không ảnh hưởng tới các phần tử ở sau nó*/
+}
+.menu ul li a
+{
+	text-decoration: none; /*bỏ dấu gạch chân dưới chữ*/
+	color: white; /*màu chữ là màu trăng*/
+	display: block; /*hiển thị theo một khối*/
+	font-size: 18px;
+	text-align: center; /*chữ nằm ở giữa khối*/
+	
+}
+
+.menu ul li>.menu-phu /*dấu > là vùng chọn thứ cấp(selector) liền nhau , tức là chỉ những phần tử nào sử dụng class menu-phu nằm trong thẻ ul li mới có những thuộc tính ở dưới*/
+{
+	background: black;
+	display: none; /*thuộc tính này có ý nghĩa là ẩn các menu con đi */
+}
+.menu ul li a:hover
+{
+	color: black; /*màu chữ khi di chuyển chuột vào menu*/
+	background: white; /*màu nền khi di chuyển chuột vào menu*/
+}
+.menu ul li:hover >.menu-phu /*dấu > là vùng chọn thứ cấp(selector) liền nhau , tức là khi di chuyển chuột vào menu thì chỉ những phần tử nào sử dụng class menu-phu nằm trong thẻ ul li mới có những thuộc tính ở dưới*/
+{
+	position: absolute; /*giá trị absolute ở đây nghĩa là định dạng tuyệt đối, tức là nó sẽ không vượt khỏi khung được tạo ở menu ul li , nơi chứa giá trị relative*/
+	display: block; /*Hiển thị theo một khối*/
+}
+
+/*----------------------------------------------- Thiết kế lớp web chính  -------------------------------------------------*/
+.web 
+{
+	width: 1310px;
+	margin: 0px auto;
+}
+.KhungChinh
+{
+	color: black;
+	font-size: 30px;
+}
+
+/*----------------------------------------------- Thiết kế lớp Top -------------------------------------------------*/
+.web .Top
+{
+	
+	float: left;
+	border: 1px solid #dddddd;
+	width: 280px;
+	height: 450px;
+	margin-top: 50px;
+	margin-left: 20px;	
+
+	box-shadow: 10px 10px 10px -9px #cdcdcd;
+}
+.web .Top .anh
+{
+	height: 70px;
+	width: 100px;
+	float: left;
+	margin-top: 10px
+}
+.web .Top .anh img
+{
+	margin: 10px;
+	height: 70px;
+	width: 100px;
+}
+.web .Top .chu{
+	float: left;
+	height: 80px;
+	width: 180px;	
+}
+.web .Top .chu p
+{
+	padding: 30px 10px 10px;
+	margin-left: 10px;
+	word-break:keep-all;
+	text-decoration: none;
+	color:#00b5ad;
+	font-weight: bold;
+	
+}
+.web .Top .gach
+{
+	height: 100px;
+	width: 260px;
+	align-items: center;
+	border-bottom: 1px solid #E1E1E1;
+}
+/*----------------------------------------------- Thiết kế một số lớp phụ -------------------------------------------------*/
+.banner
+{
+	background: url("../anh/1.jpg");
+	width:100%;
+	height: 320px;
+	align: center;
+}/* */
+.timkiem 
+{
+	padding: 30px 30px;
+	shape-image-threshold: 
+}
+
+.timkiem input
+{
+	box-sizing: border-box;
+	border-radius: 15px;
+	width: 160px;
+	outline: none;
+	height: 40px;
+}
+.timkiem input:focus
+{
+	width: 100px;
+}
+.web .Top .chu p:hover
+{
+	color: red;
+}
+/*----------------------------------------------- Thiết kế lớp cuối trang -------------------------------------------------*/
+.cuoitrang
+{
+	margin-top: 85px;
+	width: 100%;
+	height: 280px;
+	background: #09BEFB;
+	float: left;
+}
+.cuoitrang img
+{
+	width: 280px;
+	height: 220px;
+	float: left;
+	margin-left: 0px;
+	
+}
+.cuoitrang .chu 
+{
+	margin:35px 0px 0px 50px;
+	float: left;	
+	width: 120px;
+	height: 30px;
+	font-size: 20px;
+	font-weight: bold;
+	font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
+	color: yellow;
+}
+.cuoitrang .tt
+{
+    height: 130px;
+    width: 400px;
+    font-size: 18px;
+    margin-left: -120px;
+    margin-top: 80px;
+    color: white;
+    float: left;
+}
+.cuoitrang .follow
+{
+	color: yellow;
+	font-size: 22px;
+	font-weight: bold;
+	font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
+	float: left;
+	width: 250px;
+	height: 150px;
+	margin: 32px 0 0 100px;
+}
+.cuoitrang .follow img
+{
+	margin: 20px 0 0 20px;
+	height: 50px;
+	width: 50px;
+}
+.cuoitrang .ke
+{
+	margin-top: 220px;
+	border: 1px solid #313131;
+	width: 100%;
+	background:red;
+}
+/*----------------------------------------------------- Lết thúc--- -------------------------------------------------*/
